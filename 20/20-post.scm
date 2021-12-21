@@ -83,13 +83,14 @@
   ; same as each other over time (empty space is homogeneous).
   ; This means that empty space is translationally symmetrical with a 1x1 unit cell.
   ; So, provided that the scene is sufficiently padded with empty space, the entire scene
-  ; can be treated as a single unit cell of m x n size. The padding behaves like empty space
-  ; until any changes near the center have the chance to propagate outwards.
+  ; can be treated as a single periodic unit cell of m x n size (i.e., it wraps around to itself).
+  ; The padding behaves like empty space until any changes near the center have the chance to
+  ; propagate. Practically, all of this means that I don't need to make any assumptions about
+  ; the form of the input; the empty space near the edges still behaves like empty space.
   ;
-  ; Practically, I've implemented it so point's neighbors wrap around to the other side of the
-  ; unit cell, just like how moving off the map to the right in pacman puts you on the left
-  ; side of the map.
-  ; e.g., when considering what value to give the top left point, 
+  ; I've implemented it so point's neighbors wrap around to the other side of the unit cell,
+  ; just like how moving off the map to the right in pacman puts him on the left side of the
+  ; map.  For example, when considering what value to give the top left point, 
   ; # . . .               # + . +
   ; . . . .  we consider  + + . +
   ; . . . .  the +'s:     . . . .
