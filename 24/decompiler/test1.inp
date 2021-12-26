@@ -1,0 +1,13 @@
+inp w
+inp x
+add x 21
+mul x 42
+mod x 10
+add y 20
+mul x y
+add w 0
+mul w 1
+div w 1
+add w 20
+mul w 0
+add x w
