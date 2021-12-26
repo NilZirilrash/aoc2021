@@ -423,7 +423,7 @@ func translateBinOp(op: range[ikAdd .. ikEql]): string =
 proc genExpr(tree: ParseTreePtr; idents: Table[ParseTreePtr, string]): string =
   case tree.kind
   of nkInp:
-    fmt"result[{tree.idx}]"
+    fmt"input[{tree.idx}]"
   of nkLit:
     $tree.n
   of nkBinOp:
@@ -435,7 +435,7 @@ proc genExpr(tree: ParseTreePtr; idents: Table[ParseTreePtr, string]): string =
         tree.left.kind == nkBinOp and tree.left.inst_kind == ikEql:
       let left = tree.left.left
       let right = tree.left.right
-      fmt"({genExpr(left, idents)} != {genExpr(right, idents)}"
+      fmt"({genExpr(left, idents)} != {genExpr(right, idents)})"
     else:
       fmt"({genExpr(tree.left, idents)} {translateBinOp(tree.inst_kind)} {genExpr(tree.right, idents)})"
 
