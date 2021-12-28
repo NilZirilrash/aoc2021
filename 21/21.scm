@@ -140,8 +140,8 @@
 (define NUM-STATES
   (* 10  ; 1 .. 10 number of board spaces for p1
      10  ; 1 .. 10 number of board spaces for p2
-     31  ; 0 .. 31 score for p1
-     31  ; 0 .. 31 score for p2
+     31  ; 0 .. 30 score for p1
+     31  ; 0 .. 30 score for p2
      2)) ; two different players
 
 ; helper functions to generate an index to a 1D array spanning state space
